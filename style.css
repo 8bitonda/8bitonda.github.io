@@ -1,0 +1,817 @@
+/* --- VARIABLES GLOBALES Y RESET --- */
+:root {
+    --color-fondo: #0d1b2a;       /* Azul oscuro */
+    --color-primario: #00b4d8;    /* Cian eléctrico */
+    --color-secundario: #1b263b;  /* Azul más claro */
+    --color-texto: #e0e1dd;       /* Blanco-grisáceo */
+    --color-blanco: #ffffff;
+    
+    --fuente-titulos: 'Orbitron', sans-serif;
+    --fuente-texto: 'Poppins', sans-serif;
+    
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--fuente-texto);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+section {
+    padding: 5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- BOTÓN PRINCIPAL (CALL TO ACTION) --- */
+.cta-button {
+    display: inline-block;
+    background: var(--color-primario);
+    color: var(--color-fondo);
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--fuente-titulos);
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-primario);
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: var(--color-primario);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.7);
+}
+
+/* --- ENCABEZADO FIJO --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 0.5;
+    margin: 0 2rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--color-secundario);
+    background: var(--color-secundario);
+    color: var(--color-texto);
+    border-radius: 5px 0 0 5px;
+    font-family: var(--fuente-texto);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    border: none;
+    background: var(--color-primario);
+    color: var(--color-fondo);
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+nav .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+nav .nav-links a {
+    color: var(--color-texto);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: var(--color-primario);
+}
+
+.social-media {
+    display: flex;
+}
+
+.social-media a {
+    color: var(--color-texto);
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--color-primario);
+    transform: scale(1.2);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-primario);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- SECCIÓN HERO --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding-top: var(--header-height);
+    position: relative;
+    overflow: hidden;
+    background-color: #0d121c;
+    background-image: url('img/hero-wallpaper.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--color-blanco);
+    text-shadow: 0 0 20px rgba(0, 180, 216, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 1rem auto 2rem auto;
+    color: var(--color-texto);
+}
+
+/* --- SECCIÓN CATEGORÍAS (MOSAICO) --- */
+.categories {
+    background: var(--color-fondo);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background: var(--color-secundario);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.category-card i {
+    font-size: 3.5rem;
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.category-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primario);
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.6);
+}
+
+.category-card:hover i {
+    transform: scale(1.1);
+}
+
+/* --- SECCIÓN SOBRE NOSOTROS --- */
+.about-us {
+    background-color: #101f30;
+    background-image: 
+        repeating-linear-gradient(45deg, #132233 25%, #132233 50%, #101f30 50%, #101f30 75%),
+        repeating-linear-gradient(-45deg, #132233 25%, #132233 50%, #101f30 50%, #101f30 75%);
+    background-size: 6px 6px;
+    border-top: 2px solid var(--color-primario);
+    border-bottom: 2px solid var(--color-primario);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(13, 27, 42, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* --- SECCIÓN CONTACTO --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+    border-radius: 5px;
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+}
+
+.contact-info {
+    padding-left: 2rem;
+    border-left: 1px solid var(--color-secundario);
+}
+
+.contact-info p {
+    margin: 1rem 0;
+}
+
+.cta-button.marketplace {
+    background: #1877F2;
+    border-color: #1877F2;
+    color: var(--color-blanco);
+}
+
+.cta-button.marketplace:hover {
+    background: transparent;
+    color: #1877F2;
+}
+
+.social-media-contact {
+    margin-top: 1.5rem;
+}
+
+.social-media-contact a {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-media-contact a:hover {
+    color: var(--color-primario);
+    transform: scale(1.1);
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    background: #0a141f;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0, 180, 216, 0.2);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-logo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    color: var(--color-primario);
+}
+
+.footer-links a {
+    color: var(--color-texto);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: var(--color-primario);
+}
+
+.footer-social a {
+    color: var(--color-texto);
+    font-size: 1.2rem;
+    margin-left: 15px;
+}
+
+.footer-social a:hover {
+    color: var(--color-primario);
+}
+
+.footer-bottom {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--color-secundario);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+
+/* --- RESPONSIVE DESIGN (MÓVIL) --- */
+
+@media (max-width: 992px) {
+    .header-content {
+        position: relative;
+    }
+    
+    .search-bar {
+        display: none;
+    }
+
+    nav {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--color-fondo);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    nav.active {
+        max-height: 500px;
+        border-bottom: 1px solid var(--color-primario);
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav .nav-links li {
+        width: 100%;
+    }
+
+    nav .nav-links a {
+        padding: 1.2rem;
+        display: block;
+        border-bottom: 1px solid var(--color-secundario);
+    }
+
+    .social-media {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/* --- SECCIÓN PRODUCTOS DESTACADOS --- */
+.products {
+    background-color: var(--color-fondo);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--color-secundario);
+    border-radius: 10px;
+    border: 1px solid var(--color-secundario);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    height: 200px;
+    background: #0a141f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image i {
+    font-size: 5rem;
+    color: var(--color-primario);
+    opacity: 0.5;
+}
+
+.product-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.3rem;
+    color: var(--color-blanco);
+    margin-bottom: 0.5rem;
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.product-info .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    margin-bottom: 1.2rem;
+}
+
+.product-button {
+    background: transparent;
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+    text-align: center;
+    padding: 10px;
+}
+
+.product-button:hover {
+    background: var(--color-primario);
+    color: var(--color-fondo);
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
+    box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+}
+
+/* --- NUEVOS ESTILOS PARA LISTAS DE SERVICIOS --- */
+.category-card .service-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 1rem;
+    width: 100%;
+    flex-grow: 1; 
+}
+
+.category-card .service-list li {
+    font-family: var(--fuente-texto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.category-card .service-list li:last-child {
+    border-bottom: none;
+}
+
+.category-card .service-list .service-price {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap; 
+}
+
+.category-card .service-list .service-desc {
+    font-size: 0.85rem;
+    color: var(--color-texto);
+    justify-content: flex-start;
+    opacity: 0.9;
+    padding-top: 0.5rem;
+}
+
+.btn-more-visible {
+    background: transparent;
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 1.5rem; 
+    transition: all 0.3s ease;
+}
+
+.btn-more-visible:hover {
+    background: var(--color-primario);
+    color: var(--color-fondo);
+    transform: scale(1.05);
+}
+
+/* --- AJUSTE PARA PÁGINAS MÚLTIPLES --- */
+main > section:not(.hero):first-child {
+    padding-top: calc(var(--header-height) + 4rem);
+}
+
+/* --- AJUSTE PARA BOTONES DE WHATSAPP EN SERVICIOS --- */
+.category-card .product-button {
+    margin-top: 1.5rem;
+}
+
+/* --- ESTILO PARA EL ENLACE ACTIVO DEL MENÚ --- */
+header .nav-links a.active-link {
+    color: var(--color-primario);
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-primario);
+}
+
+/* --- Estilos para el logo de imagen --- */
+.header-content .logo img {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.header-content .logo:has(img) {
+    font-size: 0;
+    line-height: 0;
+}
+
+/* --- (NUEVO) ESTILOS PARA ESTADO DEL FORMULARIO --- */
+/* (Este es el código que te faltaba) */
+
+#form-status {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    display: none; /* Oculto por defecto */
+}
+
+#form-status.success {
+    background-color: rgba(0, 180, 216, 0.2); /* Fondo cian claro */
+    color: var(--color-primario); /* Texto cian */
+    display: block;
+}
+
+#form-status.error {
+    background-color: rgba(255, 0, 0, 0.2); /* Fondo rojo claro */
+    color: #ff4d4d; /* Texto rojo */
+    display: block;
+}
+/* --- (NUEVO) ESTILOS PARA LA ANIMACIÓN DE ÉXITO --- */
+
+/* 1. Modificamos los estilos de #form-status que ya tenías */
+#form-status {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Sigue oculto por defecto */
+}
+
+#form-status.success {
+    display: block;
+    background-color: transparent; /* Ya no necesitamos el fondo cian */
+    color: var(--color-primario); /* El texto sigue siendo cian */
+}
+
+#form-status.error {
+    display: block;
+    background-color: rgba(255, 0, 0, 0.2); /* Fondo rojo claro */
+    color: #ff4d4d; /* Texto rojo */
+}
+
+/* 2. Estilos para el párrafo dentro del status */
+#form-status p {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* 3. Estilos de la animación del Checkmark */
+.success-animation {
+    margin: 0 auto;
+}
+
+.checkmark {
+    width: 80px;  /* Tamaño del círculo */
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 3;
+    stroke: var(--color-primario); /* Color cian */
+    stroke-miterlimit: 10;
+    margin: 0 auto;
+    /* Sombra de neón opcional */
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.5); 
+    animation: scale .3s ease-in-out .9s both;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    stroke: var(--color-primario);
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+/* 4. Definición de las animaciones */
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+/* --- Estilos para el logo de imagen --- */
+.header-content .logo img {
+    height: 60px; /* <-- Tamaño del logo */
+    width: auto; /* Mantiene la proporción */
+    vertical-align: middle; /* Para que esté alineado */
+}
+
+/* Oculta el texto "8BitOnda" si la imagen está visible */
+.header-content .logo:has(img) {
+    font-size: 0; 
+    line-height: 0;
+}
+/* --- (NUEVO) Estilos para Imágenes de Producto --- */
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que la imagen se deforme */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+}
