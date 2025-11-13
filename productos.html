@@ -7,12 +7,13 @@
     
     <meta name="description" content="Catálogo de productos retro 8BitOnda. Mega Pack Retro para PC, Pendrive PS2 con juegos y más. Envíos a todo Uruguay.">
 
-    <link rel="icon" href="img/logo-8bitonda.png" type="image/png">
-    <link rel="apple-touch-icon" href="img/logo-8bitonda.png">
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7371333902028399"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" href="img/logo-8bitonda.png" type="image/png">
+    <link rel="shortcut icon" href="img/logo-8bitonda.png" type="image/png">
+    <link rel="apple-touch-icon" href="img/logo-8bitonda.png">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,32 +57,47 @@
         <section id="productos" class="products">
              <div class="container">
                 <h2>Productos Destacados</h2>
-                <p class="section-subtitle">Lo más pedido por la comunidad retro.</p>
+                <p class="section-subtitle">Haz clic en la imagen para ver la galería</p>
                 
                 <div class="product-grid">
 
                     <div class="product-card">
-                        <div class="product-image">
+                        <div class="product-image js-gallery-trigger" 
+                             data-images="img/pack-retro.jpg,img/pack-retro-2.jpg,img/pack-retro-3.jpg">
                             <img src="img/pack-retro.jpg" alt="Mega Pack Retro para PC con 7700 juegos">
                         </div>
                         <div class="product-info">
                             <h4>Mega Pack Retro para PC</h4>
                             <p>Sistema independiente con +7700 juegos y 28 consolas. Compatible con joystick USB, arranca directo desde el pendrive. ✅</p>
-                            <span class="price">$1.000 UYU</span>
+                            <span class="price">$1.200 UYU</span>
                             <a href="https://api.whatsapp.com/send?phone=59897800381&text=%C2%A1Hola%208BitOnda!%20Estoy%20interesado%20en%20el%20'Mega%20Pack%20Retro%20para%20PC'%20de%20$1.000." 
                                target="_blank" rel="noopener noreferrer" class="cta-button product-button">Comprar</a>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-image">
+                        <div class="product-image js-gallery-trigger"
+                             data-images="img/pendrive-ps2.jpg,img/pendrive-ps2-2.jpg,img/pendrive-ps2-3.jpg">
                             <img src="img/pendrive-ps2.jpg" alt="Pendrive PS2 para PC de 128GB con juegos a elección">
                         </div>
                         <div class="product-info">
                             <h4>Pendrive PS2 para PC (128GB)</h4>
                             <p>Con juegos de PS2 a elección, configurado y optimizado para jugar desde PC con joystick USB. ✅</p>
-                            <span class="price">$1.200 UYU</span>
+                            <span class="price">$1.500 UYU</span>
                             <a href="https://api.whatsapp.com/send?phone=59897800381&text=%C2%A1Hola%208BitOnda!%20Me%20interesa%20el%20'Pendrive%20PS2%20para%20PC%20(128GB)'%20de%20$1.200." 
+                               target="_blank" rel="noopener noreferrer" class="cta-button product-button">Comprar</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image js-gallery-trigger"
+                             data-images="img/pendrive-xbox.jpg,img/pendrive-xbox-2.jpg">
+                            <img src="img/pendrive-xbox.jpg" alt="Pendrive retro para Xbox 360 RGH con emuladores">
+                        </div>
+                        <div class="product-info">
+                            <h4>Pendrive Retro Xbox 360 RGH</h4>
+                            <p>Sistema de emuladores que arranca directo desde el pendrive en tu Xbox 360 RGH. ¡Juega a todo! ✅</p>
+                            <span class="price">$1.200 UYU</span> <a href="https://api.whatsapp.com/send?phone=59897800381&text=%C2%A1Hola%208BitOnda!%20Me%20interesa%20el%20'Pendrive%20Retro%20Xbox%20360%20RGH'." 
                                target="_blank" rel="noopener noreferrer" class="cta-button product-button">Comprar</a>
                         </div>
                     </div>
@@ -91,7 +107,15 @@
         </section>
 
     </main>
-
+    
+    <div id="gallery-modal" class="gallery-modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <span class="modal-prev" id="modal-prev">&#10094;</span>
+        <span class="modal-next" id="modal-next">&#10095;</span>
+        <div class="modal-content">
+            <img src="" id="modal-img" alt="Imagen de producto 8BitOnda">
+        </div>
+    </div>
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">8BitOnda</div>
