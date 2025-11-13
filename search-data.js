@@ -25,7 +25,7 @@ const searchData = [
         titulo: 'Pendrive Retro Xbox 360 RGH',
         descripcion: 'Sistema de emuladores que arranca directo desde el pendrive en tu Xbox 360 RGH. ¡Juega a todo! ✅',
         // ¡ATENCIÓN! CAMBIA EL PRECIO AQUÍ
-        precio: '$1200', 
+        precio: '$1.200', 
         url: 'productos.html',
         imagen: 'img/pendrive-xbox.jpg',
         alt: 'Pendrive retro para Xbox 360 RGH con emuladores'
@@ -77,4 +77,5 @@ const searchData = [
         icon_class: 'fa-solid fa-circle-info'
     }
 ];
+
 
