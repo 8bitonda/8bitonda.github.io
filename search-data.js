@@ -5,7 +5,7 @@ const searchData = [
         tipo: 'Producto',
         titulo: 'Mega Pack Retro para PC',
         descripcion: 'Sistema independiente con +7700 juegos y 28 consolas. Compatible con joystick USB, arranca directo desde el pendrive. ✅',
-        precio: '$1.000 UYU',
+        precio: '$1.200 UYU',
         url: 'productos.html',
         imagen: 'img/pack-retro.jpg',
         alt: 'Mega Pack Retro para PC con 7700 juegos'
@@ -14,7 +14,7 @@ const searchData = [
         tipo: 'Producto',
         titulo: 'Pendrive PS2 para PC (128GB)',
         descripcion: 'Con juegos de PS2 a elección del cliente, configurado y optimizado para jugar desde PC con joystick USB. ✅',
-        precio: '$1.200 UYU',
+        precio: '$1.500 UYU',
         url: 'productos.html',
         imagen: 'img/pendrive-ps2.jpg',
         alt: 'Pendrive PS2 para PC de 128GB con juegos a elección'
@@ -25,7 +25,7 @@ const searchData = [
         titulo: 'Pendrive Retro Xbox 360 RGH',
         descripcion: 'Sistema de emuladores que arranca directo desde el pendrive en tu Xbox 360 RGH. ¡Juega a todo! ✅',
         // ¡ATENCIÓN! CAMBIA EL PRECIO AQUÍ
-        precio: '$ PRECIO UYU', 
+        precio: '$1200', 
         url: 'productos.html',
         imagen: 'img/pendrive-xbox.jpg',
         alt: 'Pendrive retro para Xbox 360 RGH con emuladores'
@@ -53,7 +53,7 @@ const searchData = [
         tipo: 'Servicio',
         titulo: 'Destrabe Nintendo Wii',
         descripcion: 'Desbloqueo completo de Nintendo Wii.',
-        precio: '$1.500',
+        precio: '$500',
         url: 'servicios.html',
         imagen: 'icon', 
         icon_class: 'fa-solid fa-gamepad'
@@ -77,3 +77,4 @@ const searchData = [
         icon_class: 'fa-solid fa-circle-info'
     }
 ];
+
